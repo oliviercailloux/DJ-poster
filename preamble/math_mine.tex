@@ -16,16 +16,25 @@
 	%\makeatother
 
 %Deliberated Judgment
+\newcommand{\prop}{\textcolor{red}{t}}
 \newcommand{\allargs}{S^*}
 \newcommand{\args}{S}
-\newcommand{\ar}{s}
-\newcommand{\ileadsto}{⇝}
-\newcommand{\ibeatse}{⊳_\exists}
+\newcommand{\ar}[1][]{%
+	\textcolor{blue}{%
+		\ifx\\#1\\%
+			s
+		\else
+			s_#1
+		\fi%
+	}%
+}
+\newcommand{\ileadsto}{\textcolor{brown}{⇝}}
+\newcommand{\ibeatse}{\textcolor{brown}{⊳_\exists}}
 \newcommand{\nibeatse}{⋫_\exists}
 \newcommand{\ibeatsst}{⊳_\forall}
 \newcommand{\nibeatsst}{⋫_\forall}
 \newcommand{\mleadsto}[1][\eta]{⇝_{#1}}
-\newcommand{\mbeats}[1][\eta]{⊳_{#1}}
+\newcommand{\mbeats}[1][\eta]{\textcolor{violet}{⊳_{#1}}}
 \newcommand{\ibeatseinv}{⊳_\exists^{-1}}
 
 %Logic

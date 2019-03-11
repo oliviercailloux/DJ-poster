@@ -85,10 +85,59 @@
 }}
 
 % Beliefs
+\newlength{\BDNodeSep}
+\setlength{\BDNodeSep}{2em}
+\newlength{\BDDecLength}
+\setlength{\BDDecLength}{3mm}
+\newlength{\BDDecWidth}
+\setlength{\BDDecWidth}{1mm}
 \tikzset{/BeliefsD/attacker/.style={
 	shape=rectangle, draw, minimum size=8mm
 }}
 \tikzset{/BeliefsD/supporter/.style={
 	shape=circle, draw
+}}
+\tikzset{/Beliefs/undefeated/.style={
+	shape=circle, draw
+}}
+\tikzset{/Beliefs/defeated/.style={
+	shape=rectangle
+}}
+\tikzset{/Beliefs/attack/.style={
+%TODO à changer, mais crée warnings à la compilation avec version 3.0.0
+%	arrows=-{Stealth}
+	arrows=-{>}
+}}
+\tikzset{/Beliefs/attackst/.style={
+	arrows=-{>}, double
+}}
+\tikzset{/Beliefs/attackun/.style={
+	arrows=-{>},
+	decorate,
+	decoration={coil, segment length=1.5mm, aspect=0},
+%fails with ! Dimension too large. Too hard for TeX, see http://tex.stackexchange.com/questions/4404/tikz-multiple-decorations-on-a-path
+%	postaction={
+%		decorate,
+%		decoration={
+%			markings, mark=at position 0.5 with {
+%				\node[right] {unstable};
+%			}
+%		}
+%	},
+}}
+\tikzset{/Beliefs/nattack/.style={
+	arrows=-{>},
+	decoration={
+		markings, mark=at position 0.5 with {
+			\draw[-] ++ (-1mm, 1mm) -- (1mm, -1mm);
+		}
+	},
+	postaction={decorate},
+}}
+\tikzset{/Beliefs/decisive/.style={
+	alias=thisone,
+	append after command={
+      (thisone.south) edge[draw] +(0, -\BDDecLength) ++(0, -\BDDecLength) edge[draw] ++(-\BDDecWidth, 0) edge[draw] ++(\BDDecWidth, 0)
+	}
 }}
 

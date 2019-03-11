@@ -30,9 +30,11 @@
 %Warn about missing characters.
 	\tracinglostchars=2
 %Nicer tables: provides \toprule, \midrule, \bottomrule.
-	%\usepackage{booktabs}
+	\usepackage{booktabs}
 %For new column type X which stretches; can be used together with booktabs, see https://tex.stackexchange.com/a/97137.
-	%\usepackage{tabularx}
+	\usepackage{tabularx}
+	\newcolumntype{L}{>{$}l<{$}}
+	\newcolumntype{Y}{>{$}X<{$}}
 %Provides \addtocmd, \patchcmd, \newtoggle commands. xpatch extends etoolbox.
 	\usepackage{xpatch} 
 %ntheorem doc says: “empheq provides an enhanced vertical placement of the endmarks”; must be loaded before ntheorem. Loads the mathtools package, which loads and fixes some bugs in amsmath and provides \DeclarePairedDelimiter. amsmath is considered a basic, mandatory package nowadays (Grätzer, More Math Into LaTeX).
@@ -124,7 +126,7 @@
 	\makeatother
 %Permits to customize enumeration display and references
 	%\nottoggle{LCpres}{
-		%\usepackage{enumitem} %follow enumerate by a string to customize enumeration
+		\usepackage{enumitem} %follow enumerate by a string to customize enumeration
 	%}{
 	%}
 %Provides \Cen­ter­ing, \RaggedLeft, and \RaggedRight and en­vi­ron­ments Cen­ter, FlushLeft, and FlushRight, which al­low hy­phen­ation. With tikzposter, seems to cause 1=1 to be printed in the middle of the poster.
