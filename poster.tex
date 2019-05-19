@@ -7,17 +7,6 @@
 \input{preamble/math_mine}
 \input{preamble/draw}
 \usepackage{tabularx}
-\listfiles
-
-%I find these settings useful in draft mode. Should be removed for final versions.
-	%Which line breaks are chosen: accept worse lines, therefore reducing risk of overfull lines. Default = 200.
-		\tolerance=2000
-	%Accept overfull hbox up to...
-		\hfuzz=2cm
-	%Reduces verbosity about the bad line breaks.
-		\hbadness 5000
-	%Reduces verbosity about the underful vboxes.
-		\vbadness=1300
 
 \title{Studying Deliberated Judgements}
 \institute{LAMSADE, Université Paris-Dauphine}
@@ -46,7 +35,7 @@
 		%
 			\begin{tikzpicture}[remember picture,overlay]
 				\path (current page.south west) ++(1.5cm, 1.5cm) node[anchor=south west, text width=27cm] {
-					Olivier Cailloux and Yves Meinard. \emph{A formal framework for deliberated judgment}. Under revision at Theory and Decision. \href{https://arxiv.org/abs/1801.05644}{arXiv:1801.05644 [cs.AI]}.
+					Olivier Cailloux and Yves Meinard. \emph{A formal framework for deliberated judgment}. To appear in Theory and Decision. \href{https://arxiv.org/abs/1801.05644}{arXiv:1801.05644 [cs.AI]}.
 				};
 			\end{tikzpicture}%
 		%
@@ -196,9 +185,9 @@
 				\toprule
 				\text{Notation}	&\text{Here}	&Description\\
 				\midrule
-				T	&\set{\prop}	&The topic, containing propositions about which $i$ deliberates\\
+				\props	&\set{\prop}	&The topic, containing propositions about which $i$ deliberates\\
 				\args	&\set{\ar, \ar[1], \ar[2], \ar[3]}	&The arguments\\
-				{\ileadsto} \subseteq \args × T	&\set{(\ar, \prop), (\ar[1], \prop)}	&Support as considered by $i$\\
+				{\ileadsto} \subseteq \args × \props	&\set{(\ar, \prop), (\ar[1], \prop)}	&Support as considered by $i$\\
 				{\ibeatse} \subseteq \args × \args	&\set{(\ar[2], \ar[1])}	&Attacks as considered by $i$ in some perspective\\
 				{\mbeats} \subseteq \args × \args	&\set{(\ar[3], \ar[2])}	&Attacks as considered by the model $\eta$\\
 				\bottomrule
