@@ -153,6 +153,7 @@
 	\end{minipage}
 }
 
+
 \begin{columns}
 	\column{0.45}
 		\block{Study deliberated judgment}{
@@ -200,9 +201,9 @@
 				\path (eq.east) node[anchor=west] (eql) {$\ileadsto$};
 				\path (eql.east) node[anchor=west] (eqr) {rain tomorrow ($\prop$)};
 				\path (eq.south) ++(0, -\BDNodeSep) node[anchor=north] (wrong) {weather forecast is often wrong ($\ar[2]$)};
-				\path (wrong) edge[/Beliefs/attack] node[right] {$\ibeatse$} (eq);
+				\path (wrong) edge[/Beliefs/attack] node[right] {$\ibeatse, \nibeatse$} (eq);
 				\path (wrong.south) ++(0, -\BDNodeSep) node[anchor=north] (right) {weather forecast is more often right ($\ar[3]$)};
-				\path (right) edge[/Beliefs/attack] node[right] {$\mbeats$} (wrong);
+				\path (right) edge[/Beliefs/attack] node[right] {$\ibeatse, \mbeats$} (wrong);
 				
 				\path (eqr.east) node[anchor=west] (complexl) {\reflectbox{$\ileadsto$}};
 				\path (complexl.base east) node[anchor=base west] (complex) {complex arg. ($\ar$)};
