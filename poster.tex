@@ -6,9 +6,8 @@
 \input{preamble/math_basics}
 \input{preamble/math_mine}
 \input{preamble/draw}
-\usepackage{tabularx}
 
-\title{Studying Deliberated Judgements}
+\title{Studying Deliberated Judgments}
 \institute{LAMSADE, Université Paris-Dauphine}
 \author{Olivier Cailloux}
 
@@ -34,26 +33,26 @@
 			\end{tikzpicture}%
 		%
 			\begin{tikzpicture}[remember picture,overlay]
-				\path (current page.south west) ++(1.5cm, 1.5cm) node[anchor=south west, text width=27cm] {
-					Olivier Cailloux and Yves Meinard. \emph{A formal framework for deliberated judgment}. To appear in Theory and Decision. \href{https://arxiv.org/abs/1801.05644}{arXiv:1801.05644 [cs.AI]}.
+				\path (current page.south west) ++(1.5cm, 0.6cm) node[anchor=south west, text width=33cm] {
+					Olivier Cailloux and Yves Meinard. \emph{A formal framework for deliberated judgment}. To appear in Theory and Decision.\\ \url{https://github.com/oliviercailloux/formal-framework-dj}.
 				};
 			\end{tikzpicture}%
 		%
 			\textbf{Context}
 			\begin{itemize}
-				\item Internal deliberation facing a decision problem
-				\item Considering an individual $i$
+				\item Deliberation facing a decision problem
+				\item Considering an individual \dm
 			\end{itemize}
 
 			\textbf{Goal}
 			\begin{itemize}
-				\item Introduce the notion of Deliberated Judgement
+				\item Introduce the notion of Deliberated Judgment
 				\item Motivate studying it
 				\item Sketch how
 			\end{itemize}
 		}
 	\column{0.6}
-		\block{Deliberated judgement: a missing conception of “preference”}{
+		\block{Deliberated judgment: a missing conception of “preference”}{
 			\begin{itemize}
 				\item Descriptive approach
 				\begin{itemize}
@@ -64,9 +63,9 @@
 					\item How you ought to reason / choose
 					\item Can’t be validated through observation of individuals
 				\end{itemize}
-				\item \emph{Deliberated} judgement (or preference)
+				\item \emph{Deliberated} judgment (or preference)
 				\begin{itemize}
-					\item $i$’s position after having considered all arguments
+					\item \dm’s position after having considered all arguments
 				\end{itemize}
 			\end{itemize}
 		}
@@ -76,7 +75,7 @@
 	\newlength{\seplott}
 	\setlength{\seplott}{3em}
 	\begin{center}
-		Choose between L1 and L2, then choose between L3 and L4. Are you sure?
+		Choose between L1 and L2, and choose between L3 and L4. Are you sure?
 		\framebox{
 			\begin{tikzpicture}[grow'=right, sibling distance=3cm, level distance=8cm]
 				\path node (l1) {L1} child {
@@ -110,7 +109,7 @@
 %		\rule{\textwidth}{1cm}
 		\begin{itemize}
 			\item First observation (Bernouilli): don’t be content with maximizing (untransformed) expected revenue!
-			\item Second observation: $i$ could be intuitively attracted by L1 $\succ$ L2 and L3 $\succ$ L4 (Allais’s problem)
+			\item Second observation: \dm{} could be intuitively attracted by L1 $\succ$ L2 and L3 $\succ$ L4 (Allais’s problem)
 			\item Including Savage
 			\item And might change her mind when given a reasoning pro expected utility
 			\item “There is, of course, an important sense in which preferences, being entirely subjective, cannot be in error”
@@ -156,28 +155,30 @@
 
 \begin{columns}
 	\column{0.45}
-		\block{Study deliberated judgement}{
+		\block{Study deliberated judgment}{
 			The proposed research program aims at the following.
 			\begin{enumerate}
-				\item Define \ac{DJ} formally
+				\item Define \ac{DJ} of \dm{} formally
 				\begin{itemize}
 					\item Given a set of arguments
-					\item Of an individual $i$
 					\item[⇒] The position that is stable facing counter-arguments
 				\end{itemize}
-				\item Define the concept of a model of someone’s \ac{DJ}
+				\item Define the concept of a model of \dm’s \ac{DJ}
 				\begin{itemize}
-					\item[⇒] A model articulates claims concerning $i$’s \ac{DJ} and argues for its claim
+					\item[⇒] A model articulates claims concerning \dm’s \ac{DJ} and argues for its claim
 				\end{itemize}
 				\item Define validity of a model
 				\begin{itemize}
-					\item[⇒] Correctly captures $i$’s \ac{DJ}
+					\item[⇒] Correctly captures \dm’s \ac{DJ}
 				\end{itemize}
 				\item Study conditions for falsifying models using observable data only
 				\begin{itemize}
-					\item[⇒] Let models debate, use $i$ as a judge
+					\item[⇒] Let models debate, use \dm{} as a judge
 				\end{itemize}
 			\end{enumerate}
+			\vspace{0.5em}
+			We obtain a theorem of the following form.\par
+			\emph{If the decision situation $(\props, \args, \ileadsto, \ibeatse, \nibeatse)$ satisfies conditions 1 to 4: an operationally valid model exists; and any operationally valid model is valid.}
 		}
 	\column{0.55}
 		\block{Example of a situation and a model of it}{
@@ -185,14 +186,14 @@
 				\toprule
 				\text{Notation}	&\text{Here}	&Description\\
 				\midrule
-				\props	&\set{\prop}	&The topic, containing propositions about which $i$ deliberates\\
+				\props	&\set{\prop}	&The topic, containing propositions about which \dm deliberates\\
 				\args	&\set{\ar, \ar[1], \ar[2], \ar[3]}	&The arguments\\
-				{\ileadsto} \subseteq \args × \props	&\set{(\ar, \prop), (\ar[1], \prop)}	&Support as considered by $i$\\
-				{\ibeatse} \subseteq \args × \args	&\set{(\ar[2], \ar[1])}	&Attacks as considered by $i$ in some perspective\\
-				{\mbeats} \subseteq \args × \args	&\set{(\ar[3], \ar[2])}	&Attacks as considered by the model $\eta$\\
+				{\ileadsto} \subseteq \args × \props	&\set{(\ar, \prop), (\ar[1], \prop)}	&Support as considered by \dm\\
+				{\ibeatse} \subseteq \args × \args\hspace{1cm}\mbox{}	&\set{(\ar[2], \ar[1])}	&$\ar[2] \mathrel{\ibeatse} \ar[1]$ iff \dm{} sometimes considers that $\ar[2]$ trumps $\ar[1]$\\
+				{\mbeats} \subseteq \args × \args	&\set{(\ar[3], \ar[2])}	&Trump situations as considered by the model $\model$\\
 				\bottomrule
 			\end{tabularx}
-			\vspace{2em}
+			\vspace{1em}
 			\begin{center}
 			\begin{tikzpicture}
 				\path node (eq) {weather f.\ predicts so ($\ar[1]$)};
