@@ -71,42 +71,49 @@
 		}
 \end{columns}
 
-\block{Deliberation can change your mind}{
-	\newlength{\seplott}
-	\setlength{\seplott}{3em}
-	\begin{center}
-		Choose between L1 and L2, and choose between L3 and L4. Are you sure?
-		\framebox{
-			\begin{tikzpicture}[grow'=right, sibling distance=3cm, level distance=8cm]
+\begin{columns}
+	\column{0.65}
+	\block{Predicting deliberation issue}{
+		\newlength{\seplott}
+		\setlength{\seplott}{3em}
+		\begin{itemize}
+			\item Choose between L1 and L2 (Kahneman and Tversky, The Psychology of
+Preferences, Scientific American, January 1982, 246, 160-73.)\\
+			\begin{tikzpicture}[grow'=right, sibling distance=3cm, level 1/.style ={level distance=4cm}, level 2/.style ={level distance=8cm}, remember picture]
 				\path node (l1) {L1} child {
-					node {1M €} edge from parent node[above] {100\%}
+					node {200 €} child {
+						node {50 €} edge from parent node[above] {100\%}
+					}
 				};
-				\path (l1-1.east) ++ (\seplott, 0) node (ql12) {VS};
+				\path (l1-1-1.east) ++ (\seplott, 0) node (ql12) {VS};
 				\path (ql12) ++ (\seplott, 0) node[anchor=west] (l2) {L2} child {
-					node {0M €} edge from parent node[above] {1\%}
-				} child {
-					node {1M €} edge from parent node[above right] {89\%}
-				} child {
-					node {5M €} edge from parent node[below] {10\%}
-				};
-				\path (l1) ++(40cm, 0) node (l3) {L3} child {
-					node {0M €} edge from parent node[above] {89\%}
-				} child {
-					node {1M €} edge from parent node[below] {11\%}
-				};
-				\path (l3 -| l3-1.east) ++ (\seplott, 0) node (ql34) {VS};
-				\path (ql34) ++ (\seplott, 0) node[anchor=west] (l4) {L4} child {
-					node {0M €} edge from parent node[above] {90\%}
-				} child {
-					node {5M €} edge from parent node[below] {10\%}
+					node {200 €} child {
+						node {0 €} edge from parent node[above] {75\%}
+					} child {
+						node {200 €} edge from parent node[below] {25\%}
+					}
 				};
 			\end{tikzpicture}
-		}
-	\end{center}
-	\mbox{}
-
-	\begin{minipage}{0.6\textwidth}
-%		\rule{\textwidth}{1cm}
+			\item Choose between L3 and L4\\
+			\begin{tikzpicture}[grow'=right, sibling distance=3cm, level 1/.style ={level distance=4cm}, level 2/.style ={level distance=8cm}, remember picture]
+				\path node (l3) {L3} child {
+					node {400 €} child {
+						node {−150 €} edge from parent node[above] {100\%}
+					}
+				};
+				\path[overlay] (l3-1-1 -| ql12) node (ql34) {VS};
+				\path (ql34) ++ (\seplott, 0) node[anchor=west] (l4) {L4} child {
+					node {400 €} child {
+						node {−0 €} edge from parent node[above] {25\%}
+					} child {
+						node {−200 €} edge from parent node[below] {75\%}
+					}
+				};
+			\end{tikzpicture}
+		\end{itemize}
+	}
+	\column{0.35}
+	\block{Disc}{
 		\begin{itemize}
 			\item First observation (Bernouilli): don’t be content with maximizing (untransformed) expected revenue!
 			\item Second observation: \dm{} could be intuitively attracted by L1 $\succ$ L2 and L3 $\succ$ L4 (Allais’s problem)
@@ -116,43 +123,8 @@
 			\item … “but in a different, more subtle sense they can be.” (Savage, \emph{The Foundations of Statistics})
 			\item[⇒]Systematic decision principles might help deliberate
 		\end{itemize}
-	\end{minipage}%
-	\begin{minipage}{0.33\textwidth}%
-		\footnotesize
-%		\rule{\textwidth}{1cm}
-		\centering
-		\setlength{\seplott}{3em}
-		\begin{tikzpicture}[grow'=right, sibling distance=1.5cm, level distance=8cm]
-			\path node (l1) {L1} child {
-				node {1M €} edge from parent node[above] {89\%}
-			} child {
-				node {1M €} edge from parent node[below] {11\%}
-			};
-			\path (l1 -| l1-1.east) ++ (\seplott, 0) node (ql12) {VS};
-			\path (ql12) ++ (\seplott, 0) node[anchor=west] (l2) {L2} child {
-				node {1M €} edge from parent node[above] {89\%}
-			} child {
-				node {0M €} edge from parent node[above right] {1\%}
-			} child {
-				node {5M €} edge from parent node[below] {10\%}
-			};
-			\path (l1.south) ++(0, -4cm) node[anchor=north] (l3) {L3} child {
-				node {0M €} edge from parent node[above] {89\%}
-			} child {
-				node {1M €} edge from parent node[below] {11\%}
-			};
-			\path (l3 -| l3-1.east) ++ (\seplott, 0) node (ql34) {VS};
-			\path (ql34) ++ (\seplott, 0) node[anchor=west] (l4) {L4} child {
-				node {0M €} edge from parent node[above] {89\%}
-			} child {
-				node {0M €} edge from parent node[above right] {1\%}
-			} child {
-				node {5M €} edge from parent node[below] {10\%}
-			};
-		\end{tikzpicture}
-	\end{minipage}
-}
-
+	}
+\end{columns}
 
 \begin{columns}
 	\column{0.45}
